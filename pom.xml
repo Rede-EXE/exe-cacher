@@ -15,15 +15,6 @@
     </properties>
 
     <dependencies>
-        <!-- Spigot -->
-        <dependency>
-            <groupId>net.hylist</groupId>
-            <artifactId>spigot-server</artifactId>
-            <version>1.7.10-R0.1-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/pandaspigot-server-1.8.8-R0.1-SNAPSHOT.jar/</systemPath>
-        </dependency>
-
         <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
