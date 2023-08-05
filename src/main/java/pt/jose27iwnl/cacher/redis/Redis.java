@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 public class Redis implements Closeable {
 
-    JedisPool jedisPool;
+    public JedisPool jedisPool;
 
     public void load(RedisCredentials credentials) {
         try {

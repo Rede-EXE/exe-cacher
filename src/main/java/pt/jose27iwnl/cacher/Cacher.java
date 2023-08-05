@@ -18,23 +18,22 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ForkJoinPool;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@Getter
-@Setter
 public class Cacher implements Closeable {
-    private String channel;
-    private JedisPool jedisPool;
-    private Gson gson;
-    private boolean async;
+    private final String channel;
+    private final JedisPool jedisPool;
+    private final Gson gson;
+    private final boolean async;
 
     private JedisPubSub jedisPubSub;
 
-    private Map<String, List<MessageListenerData>> listeners;
+    private final Map<String, List<MessageListenerData>> listeners = new HashMap<>();
 
     public Cacher(String channel, JedisPool jedisPool, Gson gson, boolean async) {
         this.channel = channel;
@@ -49,7 +48,7 @@ public class Cacher implements Closeable {
         jedisPubSub = new JedisPubSub() {
             @Override
             public void onMessage(String channel, String message) {
-                if (channel.equalsIgnoreCase(getChannel())) {
+                if (channel.equalsIgnoreCase(Cacher.this.channel)) {
                     try {
                         int breakAt = message.indexOf(';');
                         String messageId = message.substring(0, breakAt);
