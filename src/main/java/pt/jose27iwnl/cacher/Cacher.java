@@ -48,9 +48,14 @@ public class Cacher implements Closeable {
         jedisPubSub = new JedisPubSub() {
             @Override
             public void onMessage(String channel, String message) {
-                if (channel.equalsIgnoreCase(Cacher.this.channel)) {
+                if (channel.equalsIgnoreCase(Cacher.this.channel) && message != null) {
                     try {
                         int breakAt = message.indexOf(';');
+                        if (breakAt < 0) {
+                            Logger.getGlobal().severe("[Cacher] Invalid message format: " + message);
+                            return; // or throw an exception if necessary
+                        }
+
                         String messageId = message.substring(0, breakAt);
 
                         if (listeners.containsKey(messageId)) {
