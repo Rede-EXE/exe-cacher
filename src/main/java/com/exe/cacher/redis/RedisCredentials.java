@@ -1,7 +1,9 @@
 package com.exe.cacher.redis;
 
 import lombok.Getter;
+import lombok.Setter;
 
+@Setter
 @Getter
 public class RedisCredentials {
     private String host;
@@ -25,22 +27,6 @@ public class RedisCredentials {
 
     public boolean shouldAuthenticate() {
         return password != null && !password.isEmpty() && !password.trim().isEmpty();
-    }
-
-    public void setHost(String host) {
-        this.host = host;
-    }
-
-    public void setPort(int port) {
-        this.port = port;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setDbId(int dbId) {
-        this.dbId = dbId;
     }
 
     public static class Builder {
