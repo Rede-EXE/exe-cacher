@@ -1,4 +1,4 @@
-package pt.jose27iwnl.cacher.redis;
+package com.exe.cacher.redis;
 
 import lombok.Getter;
 

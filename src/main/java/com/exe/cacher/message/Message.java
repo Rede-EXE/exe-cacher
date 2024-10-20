@@ -1,4 +1,4 @@
-package pt.jose27iwnl.cacher.message;
+package com.exe.cacher.message;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

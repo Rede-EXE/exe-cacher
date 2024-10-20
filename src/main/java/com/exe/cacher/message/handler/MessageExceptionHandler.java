@@ -1,4 +1,4 @@
-package pt.jose27iwnl.cacher.message.handler;
+package com.exe.cacher.message.handler;
 
 public class MessageExceptionHandler {
 

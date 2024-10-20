@@ -1,4 +1,4 @@
-package pt.jose27iwnl.cacher.message.handler;
+package com.exe.cacher.message.handler;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
